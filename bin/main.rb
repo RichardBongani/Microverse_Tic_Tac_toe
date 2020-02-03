@@ -15,13 +15,14 @@ puts "#{board[0]}"
 puts "#{board[1]}"
 puts "#{board[2]}"
 # TODO Tell which player turn it is and ask player to choose position
-puts "Chose a position: "
+puts "Player one, choose position between 1-9: "
 position_p1 = gets.chomp
-puts "Chose a position: "
+puts "Player two, choose position between 1-9: "
 position_p2 = gets.chomp
 # TODO check if it is a valid position
-# if position is valid, number = player_symbol.
-# TODO check if it is a winning move or a draw. Check if we still having empty positions.
+# if position is valid, number = player_symbol. Else check if board has empty positions.
+# TODO if board has empty positions ask player to choose a valid position
+# TODO check if it is a winning move or a draw.
 # Else if we still having empty positions
 # Ask new position to the player. If we don't check if it's a draw
 # TODO if pass check repeat loop starting from show board with the new positions
