@@ -2,6 +2,7 @@
 
 # TODO: welcome message
 puts 'Welcome to TicTacToe!'
+puts 'Player one plays X and player two plays O. X starts playing'
 # TODO: get players name
 puts 'Player one enter your name: '
 player_one = gets.chomp
@@ -22,7 +23,6 @@ while game
   puts "Player two #{player_two}, choose position between 0-8: "
   position_p2 = gets.chomp
   puts "You choose position #{position_p2}"
-  puts 'Player one plays X and player two plays O'
   # TODO: check if players are entering valid positions if position is invalid
   # && board still contains empty positions, ask player for a new position
   # TODO create one method to check if player wins.
