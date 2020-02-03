@@ -5,6 +5,7 @@ puts 'Welcome to TicTacToe!'
 # TODO: get players name
 puts 'Player one enter your name: '
 player_one = gets.chomp
+
 puts 'Player two enter your name: '
 player_two = gets.chomp
 
