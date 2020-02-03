@@ -18,9 +18,11 @@ while game
   # TODO: creating a method for player position
   puts "Player one #{player_one}, choose position between 0-8: "
   position_p1 = gets.chomp
+  puts "You choose position #{position_p1}"
   puts "Player two #{player_two}, choose position between 0-8: "
   position_p2 = gets.chomp
-  puts "Player one plays X and player two plays O"
+  puts "You choose position #{position_p2}"
+  puts 'Player one plays X and player two plays O'
   # TODO: check if players are entering valid positions if position is invalid
   # && board still contains empty positions, ask player for a new position
   # TODO create one method to check if player wins.
