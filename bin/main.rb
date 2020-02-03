@@ -10,10 +10,8 @@ player_two = gets.chomp
 # TODO assign players their respective symbols
 puts "Player one plays X and player two plays O"
 # TODO create the board
-board = [[1,2,3],[4,5,6],[7,8,9]]
-puts "#{board[0]}"
-puts "#{board[1]}"
-puts "#{board[2]}"
+board = [0,1,2,3,4,5,6,7,8]
+puts " #{board[0..2]},\n #{board[3..5]},\n #{board[6..9]}"
 # TODO Tell which player turn it is and ask player to choose position
 puts "Player one, choose position between 1-9: "
 position_p1 = gets.chomp
