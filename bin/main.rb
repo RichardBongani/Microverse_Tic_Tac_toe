@@ -16,12 +16,13 @@ while game
   board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   puts " #{board[0..2]},\n #{board[3..5]},\n #{board[6..8]}"
   # TODO: creating a method for player position
-  puts 'Player one #{player_one}, choose position between 0-8: '
+  puts "Player one #{player_one}, choose position between 0-8: "
   position_p1 = gets.chomp
-  puts 'Player two #{player_two}, choose position between 0-8: '
+  puts "Player two #{player_two}, choose position between 0-8: "
   position_p2 = gets.chomp
-  puts 'Player one plays X and player two plays O'
-  # TODO: check if players are entering valid positions if position is invalid && board still contains empty positions, ask player for a new position
+  puts "Player one plays X and player two plays O"
+  # TODO: check if players are entering valid positions if position is invalid
+  # && board still contains empty positions, ask player for a new position
   # TODO create one method to check if player wins.
   # TODO check if it a draw
   # TODO repeat same conditions to next player
