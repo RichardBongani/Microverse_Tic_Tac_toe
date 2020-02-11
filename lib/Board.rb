@@ -33,6 +33,13 @@ class Board
     end
   end
 
+  # for the draw condition, board should not be a win and not full,(draw is when all cells are filled but no win)
+  def is_a_draw?(@board_index)
+    if !win?(@board_index) &&  is_full?(@board_index)
+      return true
+    end
+  end
+
   def check (position, symbol)
     
   end
