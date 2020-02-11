@@ -10,4 +10,5 @@ while game_on
   game.get_player_info
   puts "something here"
   n = gets.chomp
+  game.run_board
 end

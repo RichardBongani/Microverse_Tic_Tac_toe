@@ -1,4 +1,5 @@
-class Player
+require_relative "Board.rb"
+class Player < My_board
   def initialize
     puts "Welcome to Tic Tac Toe!"
     puts "Player one starts playing"
