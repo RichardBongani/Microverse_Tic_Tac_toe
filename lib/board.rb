@@ -29,7 +29,7 @@ class Board
     end
   end
 
-
+  def check(position, symbol)
 
 end
 
@@ -37,9 +37,3 @@ Board.new.board
 Board.new.is_full?
 a = Board.new.win?
 puts a
-
-
-
-
-
-

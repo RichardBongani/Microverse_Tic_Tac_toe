@@ -1,14 +1,18 @@
 #!/usr/bin/env ruby
-require_relative "../lib/player_class.rb"
+require_relative '../lib/board.rb'
+player_one = "X"
+player_two = "O"
 
-class Main < Player
-end
-game = Main.new
-game_on = true
 
-while game_on
-  game.get_player_info
-  puts "something here"
-  n = gets.chomp
-  game.run_board
+
+def game_state
+  game = Board.new
+  game_on = true
+  while game_on
+    print "Player one, pick position: "
+    position = gets.chomp.to_i
+    print "Player two, pick position: "
+    position_two = gets.chomp.to_i
+
+  end
 end
