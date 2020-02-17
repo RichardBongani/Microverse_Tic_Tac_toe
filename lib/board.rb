@@ -7,14 +7,7 @@ class Board
     @board_index = [0,1,2,3,4,5,6,7,8]
   end
 
-  def board
-    puts "#{@board_index[0]}    |#{@board_index[1]}   |#{@board_index[2]}      "
-    puts "-----------------"
-    puts "#{@board_index[3]}    |#{@board_index[4]}   |#{@board_index[5]}      "
-    puts "-----------------"
-    puts "#{@board_index[6]}    |#{@board_index[7]}   |#{@board_index[8]}      "
-  end
-
+ 
   def is_full?
     # @board_index = %w[richard] #Testing
     @board_index.all? {|element| element.is_a?(String)}
@@ -29,11 +22,11 @@ class Board
     end
   end
 
-  def check(position, symbol)
+  # def check(position, symbol)
 
 end
 
-Board.new.board
-Board.new.is_full?
-a = Board.new.win?
-puts a
+# Board.new.board
+# Board.new.is_full?
+# a = Board.new.win?
+# puts a
