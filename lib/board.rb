@@ -12,18 +12,15 @@ class Board
   end
 
   def is_full?
-    # @board_index = %w[richard] #Testing
     return @board_index.all? {|element| element.is_a?(String)}
   end
 
   def is_valid?(position,symbol)
-    if (@board_index[position]).is_a?(Integer)
-      @board_index[position] == symbol
-      p @board_index
-      return @board_index if !win?(@board_index) && !is_full?
-    else
-      puts "Invalid position"
+    if @board_index[position].is_a?(Integer) && !is_full?
+      @board_index[position] = symbol
+      return @board_index
     end
+
   end
 
   def win?(a)
@@ -41,9 +38,9 @@ class Board
     end
   end
 
-  def check(position,symbol)
-    is_valid?(position, symbol)
-  end
+  # def check(position,symbol)
+  #   is_valid?(position, symbol)
+  # end
 
 end
 

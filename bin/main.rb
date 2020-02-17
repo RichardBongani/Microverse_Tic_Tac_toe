@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../lib/board.rb'
-
-def board(board_index = [0,1,2,3,4,5,6,7,8])
+board_index = [0,1,2,3,4,5,6,7,8]
+def board(board_index)
   @board_index = board_index
   puts "#{@board_index[0]}    |#{@board_index[1]}   |#{@board_index[2]}      "
   puts "-----------------"
@@ -27,7 +27,7 @@ end
 # TODO send information to board
 # Receive and display new board
 def game_state
-  board
+  board([0,1,2,3,4,5,6,7,8])
   players_info = players
   game = Board.new
   game_on = true
@@ -38,11 +38,15 @@ def game_state
         puts "Pick a position: "
         position = gets.chomp.to_i
         symbol = players_info[1]
+        @board_index[position] = symbol
+        board(@board_index)
       else
         puts "#{players_info[2]}'s turn"
         puts "Pick a position: "
         position = gets.chomp.to_i
         symbol = players_info[3]
+        @board_index[position] = symbol
+        board(@board_index)
       end
       @array = game.is_valid?(position, symbol)
     end
