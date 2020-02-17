@@ -34,11 +34,13 @@ class Board
   end
 
   # for the draw condition, board should not be a win and not full,(draw is when all cells are filled but no win)
-  def is_a_draw?(@board_index)
+  def is_a_draw?
     if !win?(@board_index) &&  is_full?(@board_index)
       return true
     end
   end
+
+  
 
   def check (position, symbol)
     
@@ -48,10 +50,12 @@ class Board
 end
 
 Board.new.board
-Board.new.is_full?
-a = Board.new.win?
-puts a
 
+p Board.new.is_full?
+
+p Board.new.is_a_draw?
+
+p Board.new.win?
 
 
 

@@ -13,6 +13,6 @@ def game_state
     position = gets.chomp.to_i
     print "Player two, pick position: "
     position_two = gets.chomp.to_i
-
+    
   end
 end
