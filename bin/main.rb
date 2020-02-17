@@ -44,11 +44,9 @@ def game_state
         position = gets.chomp.to_i
         symbol = players_info[3]
       end
-      array = game.is_valid?(position, symbol)
-      p "array bellow"
-      p array
+      @array = game.is_valid?(position, symbol)
     end
-    board(array)
+    board(@array)
   end
 end
 

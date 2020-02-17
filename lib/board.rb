@@ -13,7 +13,7 @@ class Board
 
   def is_full?
     # @board_index = %w[richard] #Testing
-    @board_index.all? {|element| element.is_a?(String)}
+    return @board_index.all? {|element| element.is_a?(String)}
   end
 
   def is_valid?(position,symbol)
