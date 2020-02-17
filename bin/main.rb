@@ -2,6 +2,7 @@
 require_relative '../lib/board.rb'
 
 def board(board_index = [0,1,2,3,4,5,6,7,8])
+  @board_index = board_index
   puts "#{@board_index[0]}    |#{@board_index[1]}   |#{@board_index[2]}      "
   puts "-----------------"
   puts "#{@board_index[3]}    |#{@board_index[4]}   |#{@board_index[5]}      "
@@ -43,8 +44,10 @@ def game_state
         position = gets.chomp.to_i
         symbol = players_info[3]
       end
-      array = check(position, symbol)
+      array = game.is_valid?(position, symbol)
     end
     board(array)
   end
 end
+
+game_state
