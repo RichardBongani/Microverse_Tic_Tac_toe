@@ -45,6 +45,8 @@ def game_state
         symbol = players_info[3]
       end
       array = game.is_valid?(position, symbol)
+      p "array bellow"
+      p array
     end
     board(array)
   end
