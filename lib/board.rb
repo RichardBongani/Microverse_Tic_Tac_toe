@@ -19,22 +19,30 @@ class Board
   def is_valid?(position,symbol)
     if (@board_index[position]).is_a?(Integer)
       @board_index[position] == symbol
+      p @board_index
+      return @board_index if !win?(@board_index) && !is_full?
+    else
+      puts "Invalid position"
+    end
   end
 
   def win?(a)
     if all_equal?(a[0..2]) ||
       all_equal?(a[3..5])  ||
       all_equal?(a[6..8])  ||
-      d = all_equal?([].push(a[0], a[3], a[6]).to_a)
-      d = all_equal?([].push(a[1], a[4], a[7]).to_a)
-      d = all_equal?([].push(a[2], a[5], a[8]).to_a)
-      d = all_equal?([].push(a[0], a[4], a[8]).to_a)
+      d = all_equal?([].push(a[0], a[3], a[6]).to_a) ||
+      d = all_equal?([].push(a[1], a[4], a[7]).to_a) ||
+      d = all_equal?([].push(a[2], a[5], a[8]).to_a) ||
+      d = all_equal?([].push(a[0], a[4], a[8]).to_a) ||
       d = all_equal?([].push(a[2], a[4], a[6]).to_a)
-          
+      return true
+    else
+      return false
+    end
   end
 
   def check(position,symbol)
-    board(position)
+    is_valid?(position, symbol)
   end
 
 end
