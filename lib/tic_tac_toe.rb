@@ -15,7 +15,7 @@ class TicTacToe
     \n
     "
   end
-
+# Fixing linter errors
   def is_position_valid?(board, position)
     board[position].is_a?(Integer) ? true : false
   end
@@ -30,14 +30,14 @@ class TicTacToe
        all_equal?(board[3..5]) ||
        all_equal?(board[6..8]) ||
        d = all_equal?([].push(a[0], a[3], a[6]).to_a) ||
-       d = all_equal?([].push(a[1], a[4], a[7]).to_a) ||
-       d = all_equal?([].push(a[2], a[5], a[8]).to_a) ||
-       d = all_equal?([].push(a[0], a[4], a[8]).to_a) ||
-       d = all_equal?([].push(a[2], a[4], a[6]).to_a)
-       return "Win"
+           d = all_equal?([].push(a[1], a[4], a[7]).to_a) ||
+               d = all_equal?([].push(a[2], a[5], a[8]).to_a) ||
+                   d = all_equal?([].push(a[0], a[4], a[8]).to_a) ||
+                       d = all_equal?([].push(a[2], a[4], a[6]).to_a)
+      'Win'
     else
       draw = board.count { |n| n.is_a? String }
-      return "Draw" if draw >= 9
+      return 'Draw' if draw >= 9
     end
   end
 
@@ -45,16 +45,16 @@ class TicTacToe
     if is_position_valid?(@board, position)
       @board[position] = symbol
       result = is_winning_move?(@board)
-      if result == "Win"
+      if result == 'Win'
         puts "#{player} won the game"
-        return false
-      elsif result == "Draw"
+        false
+      elsif result == 'Draw'
         puts "It's a draw"
-        return false
+        false
       end
     else
-      puts "Invalid position. Please enter a valid position."
-      game_on = "Invalid"
+      puts 'Invalid position. Please enter a valid position.'
+      game_on = 'Invalid'
     end
   end
 end
