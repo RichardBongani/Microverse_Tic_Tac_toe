@@ -44,6 +44,7 @@ class Main
         position = gets.chomp.to_i
         game_on = @play.play_game(position, @info[3], @info[2])
       end
+      
       next if (game_on == false) || (game_on == 'Invalid')
       @play.draw_board
       count += 1
