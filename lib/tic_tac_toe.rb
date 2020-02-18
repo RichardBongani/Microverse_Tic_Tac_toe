@@ -34,7 +34,7 @@ class TicTacToe
        all_equal?([].push(a[2], a[5], a[8]).to_a) ||
        all_equal?([].push(a[0], a[4], a[8]).to_a) ||
        all_equal?([].push(a[2], a[4], a[6]).to_a)
-      return 'Win'
+      'Win'
     else
       draw = board.count { |n| n.is_a? String }
       return 'Draw' if draw >= 9
@@ -56,7 +56,7 @@ class TicTacToe
       puts "\n"
       puts 'Invalid position. Please enter a valid position.'
       puts 'Try again'
-      return game_on = 'Invalid'
+      game_on = 'Invalid'
     end
   end
 end
