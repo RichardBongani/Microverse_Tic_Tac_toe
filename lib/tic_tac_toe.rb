@@ -55,7 +55,7 @@ class TicTacToe
     else
       puts "\n"
       puts 'Invalid position. Please enter a valid position.'
-      puts "Try again"
+      puts 'Try again'
       return game_on = 'Invalid'
     end
   end
