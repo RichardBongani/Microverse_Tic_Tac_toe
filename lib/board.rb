@@ -4,29 +4,38 @@ class Board
   attr_reader :board_index
 
   def initialize
-    @board_index = [0,1,2,3,4,5,6,7,8]
+    @board = [0,1,2,3,4,5,6,7,8]
   end
 
   def all_equal?(array)
       array.uniq.size <= 1
   end
 
-  def is_full?
-    return @board_index.all? {|element| element.is_a?(String)}
+  def is_full?(board)
+    return board.all? {|element| element.is_a?(Integer)}
   end
 
   def is_valid?(position,symbol)
-    if @board_index[position].is_a?(Integer) && !is_full?
-      @board_index[position] = symbol
-      return @board_index
+    if @board[position].is_a?(Integer)
+      @board[position] = symbol
+      if win?(@board)
+        puts "It's #{symbol}'s win"
+        return @board, game_on = false
+      end
+    else
+      if !(is_full?(@board))
+        puts "Invalid position"
+      else
+        puts "It's a draw"
+      end
     end
-
+    return @board, game_on = true
   end
 
   def win?(a)
     if all_equal?(a[0..2]) ||
       all_equal?(a[3..5])  ||
-      all_equal?(a[6..8])  ||
+      all_equal?(a[6..8])  #||
       d = all_equal?([].push(a[0], a[3], a[6]).to_a) ||
       d = all_equal?([].push(a[1], a[4], a[7]).to_a) ||
       d = all_equal?([].push(a[2], a[5], a[8]).to_a) ||
@@ -38,13 +47,4 @@ class Board
     end
   end
 
-  # def check(position,symbol)
-  #   is_valid?(position, symbol)
-  # end
-
 end
-
-# Board.new.board
-# Board.new.is_full?
-# a = Board.new.win?
-# puts a

@@ -48,7 +48,7 @@ def game_state
         @board_index[position] = symbol
         board(@board_index)
       end
-      @array = game.is_valid?(position, symbol)
+      @array, game_on = game.is_valid?(position, symbol)
     end
     board(@array)
   end
