@@ -3,6 +3,7 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
+    - "./lib/tic_tac_toe.rb"
 
   DisplayCopNames: true
 
@@ -39,4 +40,3 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-
