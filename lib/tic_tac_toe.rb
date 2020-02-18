@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TicTacToe
   attr_accessor :board
   def initialize(board)
@@ -15,7 +17,8 @@ class TicTacToe
     \n
     "
   end
-# Fixing linter errors
+
+  # Fixing linter errors
   def is_position_valid?(board, position)
     board[position].is_a?(Integer) ? true : false
   end
@@ -34,7 +37,7 @@ class TicTacToe
        all_equal?([].push(a[2], a[5], a[8]).to_a) ||
        all_equal?([].push(a[0], a[4], a[8]).to_a) ||
        all_equal?([].push(a[2], a[4], a[6]).to_a)
-      return 'Win'
+      'Win'
     else
       draw = board.count { |n| n.is_a? String }
       return 'Draw' if draw >= 9

@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require_relative '../lib/tic_tac_toe.rb'
 
 class Main
@@ -39,19 +41,16 @@ class Main
         position = gets.chomp.to_i
         symbol = @info[1]
         game_on = @play.play_game(position, @info[1], @info[0])
-        next if game_on == false or game_on == 'Invalid'
-
-        @play.draw_board
+        next if (game_on == false) || (game_on == 'Invalid')
       else
         puts "It's #{@info[2]}'s turn"
         print 'Pick a position: '
         position = gets.chomp.to_i
         symbol = @info[3]
         game_on = @play.play_game(position, @info[3], @info[2])
-        next if game_on == false or game_on == 'Invalid'
-
-        @play.draw_board
+        next if (game_on == false) || (game_on == 'Invalid')
       end
+      @play.draw_board
       count += 1
     end
   end
