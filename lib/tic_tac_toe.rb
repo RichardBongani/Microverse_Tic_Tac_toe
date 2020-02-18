@@ -26,6 +26,7 @@ class TicTacToe
 
   # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disble Metrics/CyclomaticComplexity
+  # swiftlint:disable:next cyclomatic_complexity
   def winning_move?(board)
     a = board
     if all_equal?(board[0..2]) ||
