@@ -13,7 +13,7 @@ class Main
     puts 'To win you need to have three identical symbols in a row'
     puts "\n"
   end
-# fixing linter errors
+
   def players_info
     @info = []
     2.times do |i|
