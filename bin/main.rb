@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require_relative '../lib/tic_tac_toe.rb'
 
 class Main
@@ -46,7 +47,7 @@ class Main
       end
 
       next if (game_on == false) || (game_on == 'Invalid')
-      
+
       @play.draw_board
       count += 1
     end
