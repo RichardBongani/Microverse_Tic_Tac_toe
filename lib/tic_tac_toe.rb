@@ -24,7 +24,8 @@ class TicTacToe
     arr.uniq.size <= 1
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disble Metrics/CyclomaticComplexity
   def winning_move?(board)
     a = board
     if all_equal?(board[0..2]) ||
