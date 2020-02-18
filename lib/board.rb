@@ -1,7 +1,7 @@
 require_relative "check_board.rb"
 
 class Board
-  attr_reader :board_index
+  attr :board
 
   def initialize
     @board = [0,1,2,3,4,5,6,7,8]
@@ -16,20 +16,12 @@ class Board
   end
 
   def is_valid?(position,symbol)
-    if @board[position].is_a?(Integer)
+    if (@board[position]).is_a? Integer
       @board[position] = symbol
-      if win?(@board)
-        puts "It's #{symbol}'s win"
-        return @board, game_on = false
-      end
+      return @board 
     else
-      if !(is_full?(@board))
-        puts "Invalid position"
-      else
-        puts "It's a draw"
-      end
+      puts "Invalid position"
     end
-    return @board, game_on = true
   end
 
   def win?(a)
