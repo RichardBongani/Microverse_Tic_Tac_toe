@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class TicTacToe
   attr_accessor :board
   def initialize(board)
@@ -18,8 +16,7 @@ class TicTacToe
     "
   end
 
-  # Fixing linter errors
-  def is_position_valid?(board, position)
+  def valid_position?(board, position)
     board[position].is_a?(Integer) ? true : false
   end
 
@@ -27,7 +24,7 @@ class TicTacToe
     arr.uniq.size <= 1
   end
 
-  def is_winning_move?(board)
+  def winning_move?(board)
     a = board
     if all_equal?(board[0..2]) ||
        all_equal?(board[3..5]) ||
@@ -37,7 +34,7 @@ class TicTacToe
        all_equal?([].push(a[2], a[5], a[8]).to_a) ||
        all_equal?([].push(a[0], a[4], a[8]).to_a) ||
        all_equal?([].push(a[2], a[4], a[6]).to_a)
-      'Win'
+      return 'Win'
     else
       draw = board.count { |n| n.is_a? String }
       return 'Draw' if draw >= 9
@@ -45,9 +42,9 @@ class TicTacToe
   end
 
   def play_game(position, symbol, player)
-    if is_position_valid?(@board, position)
+    if valid_position?(@board, position)
       @board[position] = symbol
-      result = is_winning_move?(@board)
+      result = winning_move?(@board)
       if result == 'Win'
         puts "#{player} won the game"
         false
@@ -56,8 +53,9 @@ class TicTacToe
         false
       end
     else
+      puts "\n"
       puts 'Invalid position. Please enter a valid position.'
-      game_on = 'Invalid'
+      return game_on = 'Invalid'
     end
   end
 end
