@@ -37,12 +37,12 @@ class Main
     while game_on || game_on.nil?
       if count.odd?
         puts "It's #{@info[0]}'s turn"
-        print 'Pick a position: '
+        print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
         game_on = @play.play_game(position, @info[1], @info[0])
       else
         puts "It's #{@info[2]}'s turn"
-        print 'Pick a position: '
+        print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
         game_on = @play.play_game(position, @info[3], @info[2])
       end

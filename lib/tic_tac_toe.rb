@@ -57,7 +57,7 @@ class TicTacToe
       end
     else
       puts "\n"
-      puts 'Invalid position. Please enter a valid position.'
+      puts 'Position is invalid, please pick position between 0-8 that is empty:'
       puts 'Try again'
     end
   end
