@@ -5,19 +5,21 @@ class TicTacToe
   end
 
   def draw_board
-    b = @board
-    print "\n
-    #{b[0]}  |  #{b[1]}  |  #{b[2]}
-    ---------------
-    #{b[3]}  |  #{b[4]}  |  #{b[5]}
-    ---------------
-    #{b[6]}  |  #{b[7]}  | #{b[8]}
-    \n
-    "
+    puts "\n"
+    puts "#{@board[0]}  |#{@board[1]} |#{@board[2]}"
+    puts "---------"
+    puts "#{@board[3]}  |#{@board[4]} |#{@board[5]}"
+    puts "---------"
+    puts "#{@board[6]}  |#{@board[7]} |#{@board[8]}"
+    puts"\n"
   end
 
   def valid_position?(board, position)
-    board[position].is_a?(Integer) ? true : false
+    if board[position].is_a?(Integer)
+      return true
+    else
+      return false
+    end
   end
 
   def all_equal?(arr)

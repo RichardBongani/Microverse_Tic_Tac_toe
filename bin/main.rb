@@ -11,26 +11,30 @@ class Main
     puts "\n"
     puts 'Welcome to TicTacToe!'
     puts 'Player one starts playing'
-    puts 'To win you need to have three identical symbols in a row'
+    puts 'To win you need to have three identical symbols in a row, or column or diagonal'
     puts "\n"
   end
 
   def players_info
     @info = []
-    2.times do |i|
-      print "Enter player #{i + 1} name: "
-      name = gets.chomp
-      print "Enter player #{i + 1} symbol: "
-      symbol = gets.chomp
+    i = 0
+    loop do
+      print " Player #{i + 1} enter name:"
+      name = gets.chomp.capitalize()
       @info << name
+      print " #{name} pick a symbol \"X\" or \"O\" "
+      symbol = gets.chomp.capitalize()
       @info << symbol
-      puts "\n"
+      i +=1 
+      if i == 2
+        break
+      end
+      p @info
     end
-    p @info
   end
 
   def start_playing
-    game_on = true
+    # game_on = true
     @play.draw_board
     count = 1
     while game_on || game_on.nil?
