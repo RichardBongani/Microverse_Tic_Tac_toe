@@ -26,6 +26,7 @@ class TicTacToe
   # rubocop:disable Metrics/CyclomaticComplexity
   def winning_move?(board)
     a = board
+<<<<<<< HEAD
     if all_equal?(board[0..2]) ||
        all_equal?(board[3..5]) ||
        all_equal?(board[6..8]) ||
@@ -34,6 +35,13 @@ class TicTacToe
        all_equal?([].push(a[2], a[5], a[8]).to_a) ||
        all_equal?([].push(a[0], a[4], a[8]).to_a) ||
        all_equal?([].push(a[2], a[4], a[6]).to_a)
+=======
+    if (all_equal?(board[0..2]) || all_equal?(board[3..5]) || all_equal?(board[6..8])) ||
+       (all_equal?([].push(a[0], a[3], a[6]).to_a) || all_equal?([].push(a[1], a[4], a[7]).to_a) ||
+       all_equal?([].push(a[2], a[5], a[8]).to_a)) ||
+       (all_equal?([].push(a[0], a[4], a[8]).to_a) ||
+       all_equal?([].push(a[2], a[4], a[6]).to_a))
+>>>>>>> 6602cc34b20b14c26a9ad8f8fb4f4acf71ee8c3e
       'Win'
     else
       draw = board.count { |n| n.is_a? String }
