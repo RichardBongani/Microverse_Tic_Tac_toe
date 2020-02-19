@@ -20,15 +20,13 @@ class Main
     i = 0
     loop do
       print " Player #{i + 1} enter name:"
-      name = gets.chomp.capitalize()
+      name = gets.chomp.capitalize
       @info << name
       print " #{name} pick a symbol \"X\" or \"O\" "
-      symbol = gets.chomp.capitalize()
+      symbol = gets.chomp.capitalize
       @info << symbol
-      i +=1 
-      if i == 2
-        break
-      end
+      i += 1 
+      break if i == 2
     end
   end
 
