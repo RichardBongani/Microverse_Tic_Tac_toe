@@ -37,7 +37,7 @@ class Main
     # game_on = true
     @play.draw_board
     count = 1
-    while game_on || game_on.nil?
+    while true
       if count.odd?
         puts "It's #{@info[0]}'s turn"
         print 'Pick a position: '
