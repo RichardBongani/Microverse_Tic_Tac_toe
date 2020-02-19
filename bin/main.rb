@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/tic_tac_toe.rb'
+require_relative '../lib/player.rb'
 
 class Main
   def initialize
@@ -16,18 +17,19 @@ class Main
   end
 
   def players_info
-    @info = []
-    i = 0
     loop do
-      print " Player #{i + 1} enter name:"
-      name = gets.chomp.capitalize
-      @info << name
-      print " #{name} pick a symbol \"X\" or \"O\" "
-      symbol = gets.chomp.capitalize
-      @info << symbol
-      i += 1
-      break if i == 2
+      print "Player 1 choose a symbol \"X\" or \"O\" "
+      @symbol = gets.chomp.capitalize
+      break if @symbol == "X" || @symbol == "O"
+      puts " Player 1 a valid symbol:"
     end
+    @player_1 = Player.new(@symbol)
+    if @symbol = "X"
+      symbol = "O"
+    else
+      symbol = "X"
+    end
+    @player_2 = Player.new(symbol)
   end
 
   def start_playing
@@ -36,15 +38,15 @@ class Main
     count = 1
     while game_on || game_on.nil?
       if count.odd?
-        puts "It's #{@info[0]}'s turn"
+        puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = @play.play_game(position, @info[1], @info[0])
+        game_on = @play.play_game(position, @player_1.symbol,"Player 1" )
       else
-        puts "It's #{@info[2]}'s turn"
+        puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = @play.play_game(position, @info[3], @info[2])
+        game_on = @play.play_game(position, @player_2.symbol,"Player 2")
       end
 
       next if (game_on == false) || (game_on == 'Invalid')
