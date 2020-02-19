@@ -40,8 +40,8 @@ class TicTacToe
       return 'Draw' if draw >= 9
     end
   end
-# rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/CyclomaticComplexity 
+  # rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity 
 
   def play_game(position, symbol, player)
     if valid_position?(@board, position)
