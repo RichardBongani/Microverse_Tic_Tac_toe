@@ -24,14 +24,11 @@ class TicTacToe
 
   def winning_move?(board)
     a = board
-    if all_equal?(board[0..2]) ||
-       all_equal?(board[3..5]) ||
-       all_equal?(board[6..8]) ||
-       all_equal?([].push(a[0], a[3], a[6]).to_a) ||
-       all_equal?([].push(a[1], a[4], a[7]).to_a) ||
-       all_equal?([].push(a[2], a[5], a[8]).to_a) ||
-       all_equal?([].push(a[0], a[4], a[8]).to_a) ||
-       all_equal?([].push(a[2], a[4], a[6]).to_a)
+    if (all_equal?(board[0..2]) || all_equal?(board[3..5]) || all_equal?(board[6..8])) ||
+       (all_equal?([].push(a[0], a[3], a[6]).to_a) || all_equal?([].push(a[1], a[4], a[7]).to_a)||
+       all_equal?([].push(a[2], a[5], a[8]).to_a)) ||
+       (all_equal?([].push(a[0], a[4], a[8]).to_a) ||
+       all_equal?([].push(a[2], a[4], a[6]).to_a))
       'Win'
     else
       draw = board.count { |n| n.is_a? String }
