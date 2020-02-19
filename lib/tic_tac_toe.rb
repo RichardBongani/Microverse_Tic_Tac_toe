@@ -41,7 +41,7 @@ class TicTacToe
     end
   end
   # rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/CyclomaticComplexity 
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def play_game(position, symbol, player)
     if valid_position?(@board, position)
