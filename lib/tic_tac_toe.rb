@@ -53,6 +53,7 @@ class TicTacToe
       @board[position] = symbol
       result = winning_move?(@board)
       if result == 'Win'
+        draw_board
         puts "#{player} won the game"
         false
       elsif result == 'Draw'
@@ -63,7 +64,6 @@ class TicTacToe
       puts "\n"
       puts 'Invalid position. Please enter a valid position.'
       puts 'Try again'
-      game_on = 'Invalid'
     end
   end
 end

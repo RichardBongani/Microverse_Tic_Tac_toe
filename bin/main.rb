@@ -29,15 +29,14 @@ class Main
       if i == 2
         break
       end
-      p @info
     end
   end
 
   def start_playing
-    # game_on = true
+    game_on = true
     @play.draw_board
     count = 1
-    while true
+    while game_on || game_on.nil?
       if count.odd?
         puts "It's #{@info[0]}'s turn"
         print 'Pick a position: '
