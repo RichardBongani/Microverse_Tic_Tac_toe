@@ -6,6 +6,17 @@ require_relative '../lib/player.rb'
 class Main
   def initialize
     @play = TicTacToe.new([0, 1, 2, 3, 4, 5, 6, 7, 8])
+    @board = [0,1,2,3,4,5,6,7,8]
+  end
+
+  def draw_board(board)
+    puts "\n"
+    puts "#{@board[0]}  |#{@board[1]} |#{@board[2]}"
+    puts '---------'
+    puts "#{@board[3]}  |#{@board[4]} |#{@board[5]}"
+    puts '---------'
+    puts "#{@board[6]}  |#{@board[7]} |#{@board[8]}"
+    puts "\n"
   end
 
   def welcome_message
@@ -17,7 +28,7 @@ class Main
   end
 
   def players_info
-    loop do
+    while true
       print "Player 1 choose a symbol \"X\" or \"O\" "
       @symbol = gets.chomp.capitalize
       break if @symbol == "X" || @symbol == "O"
@@ -25,16 +36,16 @@ class Main
     end
     @player_1 = Player.new(@symbol)
     if @symbol = "X"
-      symbol = "O"
+      sym = "O"
     else
-      symbol = "X"
+      sym = "X"
     end
-    @player_2 = Player.new(symbol)
+    @player_2 = Player.new(sym)
   end
 
   def start_playing
     game_on = true
-    @play.draw_board
+    @play.board
     count = 1
     while game_on || game_on.nil?
       if count.odd?
@@ -51,7 +62,9 @@ class Main
 
       next if (game_on == false) || (game_on == 'Invalid')
 
-      @play.draw_board
+      @play.board
+      @board[position] = @symbol
+      draw_board(@board)
       count += 1
     end
   end
