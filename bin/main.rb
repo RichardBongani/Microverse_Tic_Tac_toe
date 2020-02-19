@@ -25,7 +25,7 @@ class Main
       print " #{name} pick a symbol \"X\" or \"O\" "
       symbol = gets.chomp.capitalize
       @info << symbol
-      i += 1 
+      i += 1
       break if i == 2
     end
   end

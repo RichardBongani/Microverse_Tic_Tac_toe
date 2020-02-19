@@ -15,7 +15,7 @@ class TicTacToe
   end
 
   def valid_position?(board, position)
-    board[position].is_a?(Integer) ?  true : false
+    board[position].is_a?(Integer) ? true : false
   end
 
   def all_equal?(arr)
