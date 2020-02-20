@@ -57,22 +57,22 @@ class Main
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
+        symbol = @board[position] = @player_1.symbol
         game_on = @play.play_game(position, @player_1.symbol,"Player 1" )
-        @board[position] = @player_1.symbol
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
+        symbol = @board[position] = @player_2.symbol
         game_on = @play.play_game(position, @player_2.symbol,"Player 2")
-        @board[position] = @player_2.symbol
       end
-
+      count += 1
       next if (game_on == false) || (game_on == 'Invalid')
 
-      # @board[position] = @symbol
+      @board[position] = symbol
       # draw_board(@board)
       board(@board)
-      count += 1
+      
     end
   end
 end
