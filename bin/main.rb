@@ -68,11 +68,8 @@ class Main
       end
       count += 1
       next if (game_on == false) || (game_on == 'Invalid')
-
       @board[position] = symbol
-      # draw_board(@board)
       board(@board)
-      
     end
   end
 end
