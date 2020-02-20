@@ -4,7 +4,7 @@ class TicTacToe
     @board = board
   end
 
-  # def draw_board
+  # def board(array)
   #   puts "\n"
   #   puts "#{@board[0]}  |#{@board[1]} |#{@board[2]}"
   #   puts '---------'
@@ -48,7 +48,7 @@ class TicTacToe
       @board[position] = symbol
       result = winning_move?(@board)
       if result == 'Win'
-        # draw_board: testing code
+        # draw_board
         puts "#{player} won the game"
         false
       elsif result == 'Draw'

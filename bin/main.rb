@@ -9,13 +9,17 @@ class Main
     @board = [0,1,2,3,4,5,6,7,8]
   end
 
-  def draw_board(board)
+  def array
+    @board 
+  end
+
+  def board(board)
     puts "\n"
-    puts "#{@board[0]}  |#{@board[1]} |#{@board[2]}"
+    puts "#{board[0]}  |#{board[1]} |#{board[2]}"
     puts '---------'
-    puts "#{@board[3]}  |#{@board[4]} |#{@board[5]}"
+    puts "#{board[3]}  |#{board[4]} |#{board[5]}"
     puts '---------'
-    puts "#{@board[6]}  |#{@board[7]} |#{@board[8]}"
+    puts "#{board[6]}  |#{board[7]} |#{board[8]}"
     puts "\n"
   end
 
@@ -35,12 +39,13 @@ class Main
       puts " Player 1 a valid symbol:"
     end
     @player_1 = Player.new(@symbol)
-    if @symbol = "X"
-      sym = "O"
+    # symbol = @symbol
+    if @symbol == "X"
+      symbol = "O"
     else
-      sym = "X"
+      symbol = "X"
     end
-    @player_2 = Player.new(sym)
+    @player_2 = Player.new(symbol)
   end
 
   def start_playing
@@ -62,9 +67,9 @@ class Main
 
       next if (game_on == false) || (game_on == 'Invalid')
 
-      @play.board
       @board[position] = @symbol
-      draw_board(@board)
+      # draw_board(@board)
+      board(@board)
       count += 1
     end
   end
