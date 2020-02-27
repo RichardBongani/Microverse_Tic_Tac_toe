@@ -61,7 +61,6 @@ class Main
     end
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/CyclomaticComplexity
   def start_playing
     game_on = true
@@ -86,7 +85,6 @@ class Main
       board_display
     end
   end
-  # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
 end
 

@@ -27,5 +27,4 @@ class TicTacToe
   end
   # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
-
 end
