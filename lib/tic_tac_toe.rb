@@ -1,8 +1,4 @@
 class TicTacToe
-  attr_reader :board
-  def initialize(board=[0,1,2,3,4,5,6,7,8])
-    @board = board
-  end
 
   def valid_position?(board, position)
     board[position].is_a?(Integer) ? true : false
@@ -12,7 +8,7 @@ class TicTacToe
     arr.uniq.size <= 1
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable M0trics/PerceivedComplexity
   # rubocop:disable Metrics/CyclomaticComplexity
   def winning_move?(board)
     a = board
@@ -33,22 +29,22 @@ class TicTacToe
   # rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
 
-  def play_game(position, symbol, player)
-    if valid_position?(@board, position)
-      @board[position] = symbol
-      result = winning_move?(@board)
-      if result == 'Win'
-        # draw_board
-        puts "#{player} won the game"
-        false
-      elsif result == 'Draw'
-        puts "It's a draw"
-        false
-      end
-    else
-      puts "\n"
-      puts 'Position is invalid, please pick position between 0-8 that is empty:'
-      puts 'Try again'
-    end
-  end
+  # def play_game(position, symbol, player)
+  #   if valid_position?(@board, position)
+  #     @board[position] = symbol
+  #     result = winning_move?(@board)
+  #     if result == 'Win'
+  #       # draw_board
+  #       puts "#{player} won the game"
+  #       false
+  #     elsif result == 'Draw'
+  #       puts "It's a draw"
+  #       false
+  #     end
+  #   else
+  #     puts "\n"
+  #     puts 'Position is invalid, please pick position between 0-8 that is empty:'
+  #     puts 'Try again'
+  #   end
+  # end
 end

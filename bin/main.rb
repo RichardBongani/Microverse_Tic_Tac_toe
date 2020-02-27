@@ -4,16 +4,19 @@ require_relative '../lib/tic_tac_toe.rb'
 require_relative '../lib/player.rb'
 
 class Main
+  attr_reader :board
   def initialize
-    @play = TicTacToe.new([0, 1, 2, 3, 4, 5, 6, 7, 8])
+    @play = TicTacToe.new
     @board = [0,1,2,3,4,5,6,7,8]
   end
 
-  def array
-    @board 
-  end
+  #we dont have to write this part but we can use attribute definition which is a shortcut
+  # def array
+  #   @board 
+  # end
 
-  def board(board)
+  def board_display
+    board = @board 
     puts "\n"
     puts "#{board[0]}  |#{board[1]} |#{board[2]}"
     puts '---------'
@@ -36,10 +39,9 @@ class Main
       print "Player 1 choose a symbol \"X\" or \"O\" "
       @symbol = gets.chomp.capitalize
       break if @symbol == "X" || @symbol == "O"
-      puts " Player 1 a valid symbol:"
+      puts "\nPlayer 1 choose a valid symbol:"
     end
     @player_1 = Player.new(@symbol)
-    # symbol = @symbol
     if @symbol == "X"
       symbol = "O"
     else
@@ -48,28 +50,49 @@ class Main
     @player_2 = Player.new(symbol)
   end
 
+
+  def play_game(position, symbol, player)
+    if @play.valid_position?(@board, position)
+      @board[position] = symbol
+      result = @play.winning_move?(@board)
+      if result == 'Win'
+        # draw_board
+        puts "#{player} won the game"
+        false
+      elsif result == 'Draw'
+        puts "It's a draw"
+        false
+      end
+    else
+      puts "\n"
+      puts 'Position is invalid, please pick position between 0-8 that is empty:'
+      puts 'Try again'
+      return "Invalid"
+    end
+  end
+
   def start_playing
     game_on = true
-    @play.board
+    board_display
     count = 1
     while game_on || game_on.nil?
       if count.odd?
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        symbol = @board[position] = @player_1.symbol
-        game_on = @play.play_game(position, @player_1.symbol,"Player 1" )
+        symbol = @player_1.symbol
+        game_on = play_game(position,symbol,"Player 1" )
+        next if (game_on == false) || (game_on == 'Invalid')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        symbol = @board[position] = @player_2.symbol
-        game_on = @play.play_game(position, @player_2.symbol,"Player 2")
+        symbol = @player_2.symbol
+        game_on = play_game(position,symbol,"Player 2")
+        next if (game_on == false) || (game_on == 'Invalid')
       end
       count += 1
-      next if (game_on == false) || (game_on == 'Invalid')
-      @board[position] = symbol
-      board(@board)
+      board_display
     end
   end
 end
