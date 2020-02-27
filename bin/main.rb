@@ -61,7 +61,6 @@ class Main
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def start_playing
     game_on = true
     board_display
@@ -81,11 +80,11 @@ class Main
         game_on = play_game(position, symbol, 'Player 2')
       end
       next if (game_on == false) || (game_on == 'Invalid')
+      
       count += 1
       board_display
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 end
 
 game = Main.new
