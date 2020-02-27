@@ -10,19 +10,14 @@ class Main
     @board = [0,1,2,3,4,5,6,7,8]
   end
 
-  #we dont have to write this part but we can use attribute definition which is a shortcut
-  # def array
-  #   @board 
-  # end
-
   def board_display
-    board = @board 
+    board = @board
     puts "\n"
-    puts "#{board[0]}  |#{board[1]} |#{board[2]}"
-    puts '---------'
-    puts "#{board[3]}  |#{board[4]} |#{board[5]}"
-    puts '---------'
-    puts "#{board[6]}  |#{board[7]} |#{board[8]}"
+    puts "\t#{board[0]}  |  #{board[1]} |  #{board[2]}"
+    puts '      ----------------'
+    puts "\t#{board[3]}  |  #{board[4]} |  #{board[5]}"
+    puts '      ----------------'
+    puts "\t#{board[6]}  |  #{board[7]} |  #{board[8]}"
     puts "\n"
   end
 
@@ -42,11 +37,7 @@ class Main
       puts "\nPlayer 1 choose a valid symbol:"
     end
     @player_1 = Player.new(@symbol)
-    if @symbol == "X"
-      symbol = "O"
-    else
-      symbol = "X"
-    end
+    @symbol == "X" ? symbol = "O" : symbol = "X"
     @player_2 = Player.new(symbol)
   end
 
@@ -56,7 +47,6 @@ class Main
       @board[position] = symbol
       result = @play.winning_move?(@board)
       if result == 'Win'
-        # draw_board
         puts "#{player} won the game"
         false
       elsif result == 'Draw'
@@ -65,7 +55,7 @@ class Main
       end
     else
       puts "\n"
-      puts 'Position is invalid, please pick position between 0-8 that is empty:'
+      puts 'Position is invalid, please pick a position between 0-8 that is empty:'
       puts 'Try again'
       return "Invalid"
     end
