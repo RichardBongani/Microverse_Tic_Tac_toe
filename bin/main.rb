@@ -7,7 +7,7 @@ class Main
   attr_reader :board
   def initialize
     @play = TicTacToe.new
-    @board = [0,1,2,3,4,5,6,7,8]
+    @board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   end
 
   def board_display
@@ -30,17 +30,17 @@ class Main
   end
 
   def players_info
-    while true
-      print "Player 1 choose a symbol \"X\" or \"O\" "
+    loop do
+      print 'Player 1 choose a symbol "X" or "O" '
       @symbol = gets.chomp.capitalize
-      break if @symbol == "X" || @symbol == "O"
+      break if @symbol == 'X' || @symbol == 'O'
+
       puts "\nPlayer 1 choose a valid symbol:"
     end
     @player_1 = Player.new(@symbol)
-    @symbol == "X" ? symbol = "O" : symbol = "X"
+    symbol = @symbol == 'X' ? 'O' : 'X'
     @player_2 = Player.new(symbol)
   end
-
 
   def play_game(position, symbol, player)
     if @play.valid_position?(@board, position)
@@ -57,7 +57,7 @@ class Main
       puts "\n"
       puts 'Position is invalid, please pick a position between 0-8 that is empty:'
       puts 'Try again'
-      return "Invalid"
+      'Invalid'
     end
   end
 
@@ -71,14 +71,14 @@ class Main
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
         symbol = @player_1.symbol
-        game_on = play_game(position,symbol,"Player 1" )
+        game_on = play_game(position, symbol, 'Player 1')
         next if (game_on == false) || (game_on == 'Invalid')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
         symbol = @player_2.symbol
-        game_on = play_game(position,symbol,"Player 2")
+        game_on = play_game(position, symbol, 'Player 2')
         next if (game_on == false) || (game_on == 'Invalid')
       end
       count += 1

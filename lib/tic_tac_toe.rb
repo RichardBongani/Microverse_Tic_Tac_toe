@@ -1,5 +1,4 @@
 class TicTacToe
-
   def valid_position?(board, position)
     board[position].is_a?(Integer) ? true : false
   end
@@ -26,7 +25,7 @@ class TicTacToe
       return 'Draw' if draw >= 9
     end
   end
-  # rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
+
   # rubocop:enable Metrics/CyclomaticComplexity
 
   # def play_game(position, symbol, player)
