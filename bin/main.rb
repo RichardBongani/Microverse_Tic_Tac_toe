@@ -37,9 +37,9 @@ class Main
 
       puts "\nPlayer 1 choose a valid symbol:"
     end
-    @player_1 = Player.new(@symbol)
+    @player_one = Player.new(@symbol)
     symbol = @symbol == 'X' ? 'O' : 'X'
-    @player_2 = Player.new(symbol)
+    @player_two = Player.new(symbol)
   end
 
   def play_game(position, symbol, player)
@@ -61,6 +61,8 @@ class Main
     end
   end
 
+  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
   def start_playing
     game_on = true
     board_display
@@ -70,21 +72,22 @@ class Main
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        symbol = @player_1.symbol
+        symbol = @player_one.symbol
         game_on = play_game(position, symbol, 'Player 1')
-        next if (game_on == false) || (game_on == 'Invalid')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        symbol = @player_2.symbol
+        symbol = @player_two.symbol
         game_on = play_game(position, symbol, 'Player 2')
-        next if (game_on == false) || (game_on == 'Invalid')
       end
+      next if (game_on == false) || (game_on == 'Invalid')
       count += 1
       board_display
     end
   end
+  # rubocop:enable Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
 
 game = Main.new
