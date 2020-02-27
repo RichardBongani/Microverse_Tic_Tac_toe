@@ -70,17 +70,17 @@ class Main
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        symbol = @player_one.symbol
-        game_on = play_game(position, symbol, 'Player 1')
+        #symbol = @player_one.symbol
+        game_on = play_game(position, @player_one.symbol, 'Player 1')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        symbol = @player_two.symbol
-        game_on = play_game(position, symbol, 'Player 2')
+        # symbol = @player_two.symbol
+        game_on = play_game(position, @player_two.symbol, 'Player 2')
       end
       next if (game_on == false) || (game_on == 'Invalid')
-      
+
       count += 1
       board_display
     end
