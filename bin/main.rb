@@ -1,31 +1,91 @@
 #!/usr/bin/env ruby
 
-# TODO: welcome message
-puts 'Welcome to TicTacToe!'
-puts 'Player one plays X and player two plays O. X starts playing'
-# TODO: get players name
-puts 'Player one enter your name: '
-player_one = gets.chomp
+require_relative '../lib/tic_tac_toe.rb'
+require_relative '../lib/player.rb'
 
-puts 'Player two enter your name: '
-player_two = gets.chomp
+class Main
+  attr_reader :board
+  def initialize
+    @play = TicTacToe.new
+    @board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  end
 
-# Repetative loop:
-game = true
-while game
-  # TODO: create a class for the board and add a method defition
-  board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-  puts " #{board[0..2]},\n #{board[3..5]},\n #{board[6..8]}"
-  # TODO: creating a method for player position
-  puts "Player one #{player_one}, choose position between 0-8: "
-  position_p1 = gets.chomp
-  puts "You choose position #{position_p1}"
-  puts "Player two #{player_two}, choose position between 0-8: "
-  position_p2 = gets.chomp
-  puts "You choose position #{position_p2}"
-  # TODO: check if players are entering valid positions if position is invalid
-  # && board still contains empty positions, ask player for a new position
-  # TODO create one method to check if player wins.
-  # TODO check if it a draw
-  # TODO repeat same conditions to next player
+  def board_display
+    board = @board
+    puts "\n"
+    puts "\t#{board[0]}  |  #{board[1]} |  #{board[2]}"
+    puts '      ----------------'
+    puts "\t#{board[3]}  |  #{board[4]} |  #{board[5]}"
+    puts '      ----------------'
+    puts "\t#{board[6]}  |  #{board[7]} |  #{board[8]}"
+    puts "\n"
+  end
+
+  def welcome_message
+    puts "\n"
+    puts 'Welcome to TicTacToe!'
+    puts 'Player one starts playing'
+    puts 'To win you need to have three identical symbols in a row, or column or diagonal'
+    puts "\n"
+  end
+
+  def players_info
+    loop do
+      print 'Player 1 choose a symbol "X" or "O" '
+      @symbol = gets.chomp.capitalize
+      break if @symbol == 'X' || @symbol == 'O'
+
+      puts "\nPlayer 1 choose a valid symbol:"
+    end
+    @player_one = Player.new(@symbol)
+    symbol = @symbol == 'X' ? 'O' : 'X'
+    @player_two = Player.new(symbol)
+  end
+
+  def play_game(position, symbol, player)
+    if @play.valid_position?(@board, position)
+      @board[position] = symbol
+      result = @play.winning_move?(@board)
+      if result == 'Win'
+        puts "#{player} won the game"
+        false
+      elsif result == 'Draw'
+        puts "It's a draw"
+        false
+      end
+    else
+      puts "\n"
+      puts 'Position is invalid, please pick a position between 0-8 that is empty:'
+      puts 'Try again'
+      'Invalid'
+    end
+  end
+
+  def start_playing
+    game_on = true
+    board_display
+    count = 1
+    while game_on || game_on.nil?
+      if count.odd?
+        puts "It's Player 1's turn"
+        print 'Pick a position between 0-8: '
+        position = gets.chomp.to_i
+        game_on = play_game(position, @player_one.symbol, 'Player 1')
+      else
+        puts "It's Player 2's turn"
+        print 'Pick a position between 0-8: '
+        position = gets.chomp.to_i
+        game_on = play_game(position, @player_two.symbol, 'Player 2')
+      end
+      next if (game_on == false) || (game_on == 'Invalid')
+
+      count += 1
+      board_display
+    end
+  end
 end
+
+game = Main.new
+game.welcome_message
+game.players_info
+game.start_playing
