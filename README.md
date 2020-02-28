@@ -2,9 +2,9 @@
 # Project Name
 
 This is a project built when studying at Microverse. The goal of this project is
-To use what we have been learning on ruby curriculum.
+to use what we have been learning on ruby curriculum.
 
-![screenshot](./app_screenshot.png)
+![Game](./images/game.png)
 
 This is a simple TicTacToe game. This project was built using the programming
 language ruby. We had to put to use what we have been learning and all the new
