@@ -1,4 +1,4 @@
-require_relative "../bin/main.rb"
+require_relative '../bin/main.rb'
 require_relative "../lib/tic_tac_toe.rb"
 require_relative "../lib/player.rb"
 
@@ -21,8 +21,22 @@ describe TicTacToe do
 end
 
 describe Main do
-  start_playing = Main.new
-  it "checks if the board is displaying" do
-    expect(start_playing.board_display())
+  let(:show_board){Main.new}
+  it "displays the board" do
+    board = @board = [0,1,2,3,4,5,6,7,8]
+    expect{show_board.board_display}.to output(
+    "\n\t#{board[0]}  |  #{board[1]} |  #{board[2]}
+      ----------------
+      \n\t#{board[3]}  |  #{board[4]} |  #{board[5]}
+      ----------------
+      \n\t#{board[6]}  |  #{board[7]} |  #{board[8]}\n\n"
+    ).to_stdout
   end
 end
+
+# describe Main do
+#   start_playing = Main.new
+#   it "checks if the board is displaying" do
+#     expect(start_playing.board_display())
+#   end
+# end
