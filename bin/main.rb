@@ -12,7 +12,8 @@ class Main
 
   def board_display
     board = @board
-    puts "\n
+    puts "
+    
           #{board[0]}  |  #{board[1]} |  #{board[2]}
           ----------------
           #{board[3]}  |  #{board[4]} |  #{board[5]}
