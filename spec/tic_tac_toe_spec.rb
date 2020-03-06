@@ -33,6 +33,6 @@ describe Main do
       ----------------
       #{board[6]}  |  #{board[7]} |  #{board[8]}"
       )
-      ).to_stdout
+    ).to_stdout
   end
 end
