@@ -34,10 +34,3 @@ describe Main do
     ).to_stdout
   end
 end
-
-# describe Main do
-#   start_playing = Main.new
-#   it "checks if the board is displaying" do
-#     expect(start_playing.board_display())
-#   end
-# end
