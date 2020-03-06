@@ -12,13 +12,12 @@ class Main
 
   def board_display
     board = @board
-    puts "\n"
-    puts "\t#{board[0]}  |  #{board[1]} |  #{board[2]}"
-    puts '      ----------------'
-    puts "\t#{board[3]}  |  #{board[4]} |  #{board[5]}"
-    puts '      ----------------'
-    puts "\t#{board[6]}  |  #{board[7]} |  #{board[8]}"
-    puts "\n"
+    puts "\n
+          #{board[0]}  |  #{board[1]} |  #{board[2]}
+          ----------------
+          #{board[3]}  |  #{board[4]} |  #{board[5]}
+          ----------------
+          #{board[6]}  |  #{board[7]} |  #{board[8]}"
   end
 
   def welcome_message
