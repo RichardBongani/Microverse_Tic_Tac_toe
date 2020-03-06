@@ -10,10 +10,10 @@ describe TicTacToe do
   end
 
   it 'checks for winning moves' do
-    expect(tictac_test.all_equal?(['X', 'X', 'X'])).to be(true)
-    expect(tictac_test.all_equal?(['O', 'X', 'X'])).to be(false)
+    expect(tictac_test.all_equal?(%w[ X X X])).to be(true)
+    expect(tictac_test.all_equal?(%w[ O X X])).to be(false)
   end
-
+  
   it 'pass values to all_equal method' do
     expect(tictac_test.winning_move?(%w[X X X O X O X O X])).to eq('Win')
     expect(tictac_test.winning_move?(%w[X O O O X X X X O])).to eq('Draw')
@@ -25,13 +25,13 @@ describe Main do
   it 'displays the board' do
     board = @board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     expect { show_board.board_display }.to output(
-      puts "
+      puts ("
 
       #{board[0]}  |  #{board[1]} |  #{board[2]}
       ----------------
       #{board[3]}  |  #{board[4]} |  #{board[5]}
       ----------------
-      #{board[6]}  |  #{board[7]} |  #{board[8]}"
-  ).to_stdout
+      #{board[6]}  |  #{board[7]} |  #{board[8]}")
+      ).to_stdout
   end
 end
