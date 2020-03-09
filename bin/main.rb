@@ -85,7 +85,7 @@ class Main
   end
 end
 
-game = Main.new
-game.welcome_message
-game.players_info
-game.start_playing
+# game = Main.new
+# game.welcome_message
+# game.players_info
+# game.start_playing
