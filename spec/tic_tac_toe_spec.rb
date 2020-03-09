@@ -1,6 +1,4 @@
-require_relative '../bin/main.rb'
 require_relative '../lib/tic_tac_toe.rb'
-require_relative '../lib/player.rb'
 
 describe TicTacToe do
   let(:tictac_test) { TicTacToe.new }
