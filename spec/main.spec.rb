@@ -15,4 +15,9 @@ describe Main do
       )
     ).to_stdout
   end
+
+  it 'checks if player one picked an invalid symbol' do
+    expect(show_board.players_info).to be(false)
+    # expect(tictac_test.valid_position?([0, 1, 2, "X", 4, 5, 6, 7, 8], 3)).to be(false)
+  end
 end

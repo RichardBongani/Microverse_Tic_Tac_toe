@@ -84,3 +84,6 @@ class Main
     end
   end
 end
+
+teste = Main.new
+teste.players_info

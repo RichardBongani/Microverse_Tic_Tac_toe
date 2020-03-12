@@ -2,18 +2,27 @@ require_relative '../lib/tic_tac_toe.rb'
 
 describe TicTacToe do
   let(:tictac_test) { TicTacToe.new }
-  it 'returns a boolean(true/false) after checking if position is valid' do
-    expect(tictac_test.valid_position?([0..8], 0)).to be(true).or be(false)
-    expect(tictac_test.valid_position?([0..8], 1)).to be(true).or be(false)
+  it 'returns true after checking if position is valid', positive:true do
+    expect(tictac_test.valid_position?((0..8).to_a, 0)).to be(true)
   end
 
-  it 'checks for winning moves' do
+  it 'returns false after checking if position is valid', negative:true do
+    expect(tictac_test.valid_position?([0, 1, 2, "X", 4, 5, 6, 7, 8], 3)).to be(false)
+  end
+
+  it 'checks for winning moves', positive:true do
     expect(tictac_test.all_equal?(%w[X X X])).to be(true)
+  end
+
+  it 'checks for no winning moves', negative:true do
     expect(tictac_test.all_equal?(%w[O X X])).to be(false)
   end
 
-  it 'pass values to all_equal method' do
+  it 'checks if we have a winning move', positive:true do
     expect(tictac_test.winning_move?(%w[X X X O X O X O X])).to eq('Win')
+  end
+
+  it 'checks if it is a draw', negative:true do
     expect(tictac_test.winning_move?(%w[X O O O X X X X O])).to eq('Draw')
   end
 end
