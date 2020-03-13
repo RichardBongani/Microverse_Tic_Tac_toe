@@ -27,8 +27,6 @@ describe Main do
   end
 
   it 'runs a loop to play the game' do
-    # player_one = player.new("X")
-    # player_two = player.new("O")
     expect(show_board.start_playing).to be(nil)
   end
 end
