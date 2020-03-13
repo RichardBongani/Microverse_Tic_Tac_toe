@@ -1,7 +1,9 @@
 require_relative '../bin/main.rb'
+require_relative '../lib/player.rb'
 
 describe Main do
   let(:show_board) { Main.new }
+  let(:player) {Player.new}
   it 'displays the board' do
     board = @board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     expect { show_board.board_display }.to output(
@@ -18,5 +20,15 @@ describe Main do
 
   it 'checks if player one picked an invalid symbol' do
     expect(show_board.players_info).to be_a(Object)
+  end
+
+  it 'receives player, symbol and position to play game' do
+    expect(show_board.play_game(0, "X", "player one")).to be_a(Object)
+  end
+
+  it 'runs a loop to play the game' do
+    player_one = player.new("X")
+    player_two = player.new("O")
+    expect(player.start_playing.player_one).to be("X")
   end
 end
