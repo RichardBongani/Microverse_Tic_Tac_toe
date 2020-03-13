@@ -10,12 +10,20 @@ describe TicTacToe do
     expect(tictac_test.valid_position?([0, 1, 2, "X", 4, 5, 6, 7, 8], 3)).to be(false)
   end
 
-  it 'checks for winning moves', positive:true do
+  it 'checks for X winning moves', positive:true do
     expect(tictac_test.all_equal?(%w[X X X])).to be(true)
   end
 
-  it 'checks for no winning moves', negative:true do
+  it 'checks for loosing moves for X', negative:true do
     expect(tictac_test.all_equal?(%w[O X X])).to be(false)
+  end
+
+  it 'checks for O winning move', positive:true do
+    expect(tictac_test.all_equal?(%w[O O O])).to be(true)
+  end
+
+  it 'checks for loosing moves for O', negative:true do
+    expect(tictac_test.all_equal?(%w[O O X])).to be(false)
   end
 
   it 'checks if we have a winning move', positive:true do

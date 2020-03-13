@@ -85,5 +85,5 @@ class Main
   end
 end
 
-teste = Main.new
-teste.players_info
+# teste = Main.new
+# teste.players_info
