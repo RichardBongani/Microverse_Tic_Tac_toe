@@ -70,12 +70,12 @@ class Main
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = play_game(position, @player_one.symbol, 'Player 1')
+        game_on = play_game(position, "X", 'Player 1')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = play_game(position, @player_two.symbol, 'Player 2')
+        game_on = play_game(position, "O", 'Player 2')
       end
       next if (game_on == false) || (game_on == 'Invalid')
 
@@ -85,6 +85,7 @@ class Main
   end
 end
 
-teste = Main.new
-teste.start_playing
-# teste.players_info
+# test = Main.new
+# test.welcome_message
+# test.players_info
+# test.start_playing
