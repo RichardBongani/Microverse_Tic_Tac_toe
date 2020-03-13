@@ -32,7 +32,7 @@ class Main
   def players_info
     loop do
       print 'Player 1 choose a symbol "X" or "O" '
-      ARGV.clear 
+      ARGV.clear
       @symbol = gets.chomp.capitalize
       break if @symbol == 'X' || @symbol == 'O'
 
