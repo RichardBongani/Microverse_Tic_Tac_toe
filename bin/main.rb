@@ -70,12 +70,12 @@ class Main
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = play_game(position, "X", 'Player 1')
+        game_on = play_game(position, 'X', 'Player 1')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = play_game(position, "O", 'Player 2')
+        game_on = play_game(position, 'O', 'Player 2')
       end
       next if (game_on == false) || (game_on == 'Invalid')
 
