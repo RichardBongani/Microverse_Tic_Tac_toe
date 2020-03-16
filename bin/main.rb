@@ -12,13 +12,13 @@ class Main
 
   def board_display
     board = @board
-    puts "\n"
-    puts "\t#{board[0]}  |  #{board[1]} |  #{board[2]}"
-    puts '      ----------------'
-    puts "\t#{board[3]}  |  #{board[4]} |  #{board[5]}"
-    puts '      ----------------'
-    puts "\t#{board[6]}  |  #{board[7]} |  #{board[8]}"
-    puts "\n"
+    puts "
+
+          #{board[0]}  |  #{board[1]} |  #{board[2]}
+          ----------------
+          #{board[3]}  |  #{board[4]} |  #{board[5]}
+          ----------------
+          #{board[6]}  |  #{board[7]} |  #{board[8]}"
   end
 
   def welcome_message
@@ -32,6 +32,7 @@ class Main
   def players_info
     loop do
       print 'Player 1 choose a symbol "X" or "O" '
+      ARGV.clear
       @symbol = gets.chomp.capitalize
       break if @symbol == 'X' || @symbol == 'O'
 
@@ -70,12 +71,12 @@ class Main
         puts "It's Player 1's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = play_game(position, @player_one.symbol, 'Player 1')
+        game_on = play_game(position, 'X', 'Player 1')
       else
         puts "It's Player 2's turn"
         print 'Pick a position between 0-8: '
         position = gets.chomp.to_i
-        game_on = play_game(position, @player_two.symbol, 'Player 2')
+        game_on = play_game(position, 'O', 'Player 2')
       end
       next if (game_on == false) || (game_on == 'Invalid')
 
@@ -85,7 +86,7 @@ class Main
   end
 end
 
-game = Main.new
-game.welcome_message
-game.players_info
-game.start_playing
+# test = Main.new
+# test.welcome_message
+# test.players_info
+# test.start_playing
