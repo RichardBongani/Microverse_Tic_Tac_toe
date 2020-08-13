@@ -67,3 +67,6 @@ Player_1 one will start playing and then alternate with Player_2
 
 ## License
 This project is [MIT](lic.url) licensed.
+
+## Run on Repl.it
+[![Run on Repl.it](https://repl.it/badge/github/RichardBongani/Microverse_Tic_tac_toe)](https://repl.it/github/RichardBongani/Microverse_Tic_tac_toe)
